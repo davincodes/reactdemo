@@ -1,5 +1,5 @@
 import { useState } from 'react'; //import useState
-import './style.css'
+import './css/style.css'
 function App() {
   
   const [name, setName] = useState(`John`);  //name is the state (holds the value), setName is the function that will set the name. (modify and update.)
