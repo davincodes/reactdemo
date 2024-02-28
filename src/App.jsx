@@ -1,37 +1,38 @@
 import { useState } from 'react'; //import useState
 import './css/style.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 function App() {
+
+  const [todos, setTodos] = useState([]); //store todos, settodos
+  const [input, setInput] = useState('');
+
+  const newTodo = () =>{ //if you think its too long in the code you can use function then call it.
+    //spread operator.
+    setTodos([...todos, input]);
+    setInput('');
   
-  const [name, setName] = useState(`John`);  //name is the state (holds the value), setName is the function that will set the name. (modify and update.)
-  const [counter, setCounter] = useState(0); //as best practice use const on states.
+  }
 
+  return (
+      <main className="container p-5">
+        <h1 className="fw-bold mb-4">To-do List</h1>
 
-  return ( //return is what HTML shall it return.
+        <label htmlFor="newtodo">Add a new Task</label>
+        <input type="text" value={input} id="newtodo" className="form-control" onChange={(e)=>{
+          setInput(e.target.value);
+        }} />
 
-  //State - allows us to dictate the status of a variable or value. ex. on or off. the button could be click, or not.
-        // - something that holds a value. it needs to be import
+        <button className="btn btn-primary mt-2" onClick={newTodo}>New Task</button> 
 
-  <>
-    <h1 className="blue">Hello {name} </h1>
-    <h1>{counter}</h1>
-    <button onClick={()=>{
-      setCounter(counter+1);
-    }}>
-      Click me!
-    </button>
-    
-    {counter === 10 ? (<h1 style={{color: "green"}}>Congratulations</h1>) : (<h1>Not Yet</h1>)}
-    {/* Conditional  Rendering*/}
-
-    <button onClick={()=>{
-      setName (`Arben`);
-    }}>Change Name
-    </button>
-
-    <input type="text" onChange={(e)=>{ // e stands for current value.
-      setName(e.target.value)
-    }}/>
-  </>
+        <div className="card mt-3 p-3">
+          {
+            todos.map((todo, index) => (
+              <div className="alert bg-light my-2" key={index}>{todo}</div>
+            )) //todo will get the element of an array step by step, index will be the index number of the element.
+          }
+        </div>
+      </main>
 
 
       
