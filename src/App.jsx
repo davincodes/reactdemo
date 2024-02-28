@@ -1,5 +1,6 @@
 import { useState } from 'react'; //import useState
 import './css/style.css'
+import Todo from './Todo';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 function App() {
@@ -28,7 +29,7 @@ function App() {
         <div className="card mt-3 p-3">
           {
             todos.map((todo, index) => (
-              <div className="alert bg-light my-2" key={index}>{todo}</div>
+              <Todo todo={todo} index={index}/>
             )) //todo will get the element of an array step by step, index will be the index number of the element.
           }
         </div>
