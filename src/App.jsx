@@ -1,8 +1,9 @@
 import { useState } from 'react'; //import useState
+import './style.css'
 function App() {
   
   const [name, setName] = useState(`John`);  //name is the state (holds the value), setName is the function that will set the name. (modify and update.)
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(0); //as best practice use const on states.
 
 
   return ( //return is what HTML shall it return.
@@ -11,7 +12,7 @@ function App() {
         // - something that holds a value. it needs to be import
 
   <>
-    <h1>Hello {name} </h1>
+    <h1 className="blue">Hello {name} </h1>
     <h1>{counter}</h1>
     <button onClick={()=>{
       setCounter(counter+1);
