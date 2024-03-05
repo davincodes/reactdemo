@@ -2,52 +2,39 @@
 import { Outlet, Link } from "react-router-dom";
 function Layout() {
     return (
-    <>
-    <nav ClassName="navbar navbar-expand-lg navbar-light bg-light">
-    <a ClassName="navbar-brand" href="#">Navbar</a>
-    <button ClassName="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span ClassName="navbar-toggler-icon"></span>
-    </button>
-        <div ClassName="collapse navbar-collapse" id="navbarNav">
-            <ul ClassName="navbar-nav">
-            <li ClassName="nav-item active">
-                <a ClassName="nav-link" href="#">Home <span ClassName="sr-only">(current)</span></a>
-            </li>
-            <li ClassName="nav-item">
-                <a ClassName="nav-link" href="#">Features</a>
-            </li>
-            <li ClassName="nav-item">
-                <a ClassName="nav-link" href="#">Pricing</a>
-            </li>
-            <li ClassName="nav-item">
-                <a ClassName="nav-link disabled" href="#">Disabled</a>
-            </li>
-            </ul>
-        </div>
-    </nav>
+    //Sticky Footer
+    <main className="d-flex flex-column min-vh-100"> 
+        <nav className="navbar navbar-expand-lg bg-dark">
+            <div className="container-fluid">
+                <Link className="navbar-brand fw-bold text-white" to="/">React Routing Demo</Link>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <Link className="nav-link fw-bold text-white" to="about">About</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link fw-bold text-white" to="contact">Contact</Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-    <div className="container">
-
+    <div className="container p-5">
+        {/*  */}
+        <Outlet></Outlet> 
     </div>
-    </>
+    
+    {/* mt-auto for sticky footer */}
+    <footer className="footer bg-light mt-auto"> 
+        <p className="text-center p-3 fw-bold">This is a footer</p>
+    </footer>
+    </main>
 
         
-        // <>
-        //     <nav>
-        //         <ul>
-        //             <li>
-        //                 <Link to="/home">Home</Link>
-        //             </li>
-        //             <li>
-        //                 <Link to="/contact">Contact</Link>
-        //             </li>
-        //             <li>
-        //                 <Link to="/about">About</Link>
-        //             </li>
-        //         </ul>
-        //     </nav>
-        //     <Outlet />
-        // </>
     );
 }
 
